@@ -222,7 +222,7 @@ nav {
   max-width: 600px;
 }
 .hero-content > .title {
-  text-align: center;
+  text-align: left;
 }
 
 /* Achievement Badges */
@@ -798,6 +798,9 @@ nav {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+  }
+  .hero-content .intro {
+    max-width: 100%;
   }
 }
 
