@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyae Kyaw | Ecommerce Supervisor Portfolio</title>
+
+    <!-- Font & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===== ROOT VARIABLES ===== */
+      :root {
+        --primary: #2563eb;
+        --secondary: #059669;
+        --accent: #7c3aed;
+        --dark: #1f2937;
+        --gray: #6b7280;
+        --light: #f9fafb;
+        --white: #ffffff;
+        --border: #e5e7eb;
+      }
+
+      .dark-mode {
+        --primary: #3b82f6;
+        --secondary: #10b981;
+        --accent: #8b5cf6;
+        --dark: #f9fafb;
+        --gray: #d1d5db;
+        --light: #1f2937;
+        --white: #111827;
+        --border: #374151;
+      }
+
+      /* ===== BASE STYLES ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        color: var(--dark);
+        background: var(--white);
+        transition: background 0.3s, color 0.3s;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* ===== TYPOGRAPHY ===== */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--dark);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        color: var(--gray);
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      /* ===== NAVIGATION ===== */
+      nav {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo-circle {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .logo:hover .logo-circle {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+      }
+
+      .logo span {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+      }
+
+      .dark-mode .logo span {
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .dark-toggle {
+        background: none;
+        border: none;
+        color: var(--gray);
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 2rem 0;
+      }
+
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--border);
+        margin-bottom: 2rem;
+      }
+
+      .hero h1 {
+        color: var(--dark);
+      }
+
+      .title {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .intro {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* ===== SECTION STYLES ===== */
+      section {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      /* ===== SKILLS SECTION ===== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+
+      .skill-category {
+        background: var(--light);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid var(--primary);
+      }
+
+      .skill-item {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .skill-item:last-child {
+        border-bottom: none;
+      }
+
+      /* ===== EDUCATION SECTION ===== */
+      .edu-card {
+        background: var(--light);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+      }
+
+      .edu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .edu-title h3 {
+        margin-bottom: 0.3rem;
+      }
+
+      .edu-date {
+        color: var(--primary);
+        font-weight: 600;
+        background: rgba(37, 99, 235, 0.1);
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      .ongoing-badge {
+        display: inline-block;
+        background: var(--secondary);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      /* Education Timeline */
+      .edu-timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin: 2rem 0;
+      }
+
+      .edu-timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, #d1d5db, #2563eb, #d1d5db);
+      }
+
+      .dark-mode .edu-timeline::before {
+        background: linear-gradient(to bottom, #475569, #3b82f6, #475569);
+      }
+
+      .timeline-phase {
+        position: relative;
+        margin-bottom: 2.5rem;
+      }
+
+      .phase-dot {
+        position: absolute;
+        left: 8px;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        background: white;
+        border: 3px solid #d1d5db;
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .dark-mode .phase-dot {
+        background: #1e293b;
+        border-color: #475569;
+      }
+
+      .active-dot {
+        border-color: #2563eb;
+        background: #2563eb;
+        animation: pulse 2s infinite;
+      }
+
+      .dark-mode .active-dot {
+        border-color: #3b82f6;
+        background: #3b82f6;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+        }
+      }
+
+      .phase-content {
+        background: #f9fafb;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-left: 1.5rem;
+        border-left: 4px solid #2563eb;
+      }
+
+      .dark-mode .phase-content {
+        background: #334155;
+        border-left-color: #3b82f6;
+      }
+
+      .current-phase .phase-content {
+        background: #f0f9ff;
+        border-left-width: 6px;
+      }
+
+      .dark-mode .current-phase .phase-content {
+        background: #1e3a8a;
+      }
+
+      .phase-content h4 {
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .dark-mode .phase-content h4 {
+        color: #f1f5f9;
+      }
+
+      .phase-date {
+        color: #6b7280;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        font-weight: 500;
+        display: inline-block;
+        background: #e5e7eb;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+      }
+
+      .dark-mode .phase-date {
+        color: #cbd5e1;
+        background: #475569;
+      }
+
+      .current-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #dbeafe;
+        color: #2563eb;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin-top: 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .dark-mode .current-status {
+        background: #1e3a8a;
+        color: #93c5fd;
+      }
+
+      /* CAEB Course Modules */
+      .course-modules {
+        margin-top: 1.5rem;
+      }
+
+      .module-item {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        border-left: 3px solid var(--accent);
+      }
+
+      .dark-mode .module-item {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .edu-note {
+        background: #fef3c7;
+        color: #92400e;
+        padding: 1.2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+        border-left: 4px solid #f59e0b;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .dark-mode .edu-note {
+        background: #451a03;
+        color: #fdba74;
+        border-left-color: #f97316;
+      }
+
+      .edu-note i {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+      }
+
+      .edu-note p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ===== PROJECTS SECTION ===== */
+      .project-card {
+        background: var(--light);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        border: 1px solid var(--border);
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .project-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .metric {
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+      }
+
+      .dark-mode .metric {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .metric h4 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+      }
+
+      /* ===== CERTIFICATIONS SECTION ===== */
+      .certs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .cert-card {
+        background: var(--light);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .cert-card h4 {
+        margin-bottom: 0.5rem;
+      }
+
+      .cert-org {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .cert-date {
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* ===== CONTACT SECTION ===== */
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--light);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        transition: transform 0.3s, border-color 0.3s;
+        min-height: 90px;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-3px);
+        border-color: var(--primary);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-details {
+        flex-grow: 1;
+        min-width: 0;
+      }
+
+      .contact-details h4 {
+        color: var(--dark);
+        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .contact-details p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Contact item colors */
+      .contact-item.email .contact-icon {
+        background: #dc2626;
+      }
+
+      .contact-item.linkedin .contact-icon {
+        background: #0a66c2;
+      }
+
+      .contact-item.github .contact-icon {
+        background: #333;
+      }
+
+      .contact-item.phone .contact-icon {
+        background: #059669;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        color: var(--gray);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border);
+        margin-top: 3rem;
+      }
+
+      /* ===== RESPONSIVE DESIGN ===== */
+      @media (max-width: 1024px) {
+        .contact-info {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+
+        .edu-header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .contact-item {
+          padding: 1.2rem;
+        }
+
+        .contact-icon {
+          width: 45px;
+          height: 45px;
+          min-width: 45px;
+          font-size: 1.1rem;
+        }
+
+        .edu-timeline {
+          padding-left: 1.5rem;
+        }
+
+        .phase-content {
+          margin-left: 1rem;
+          padding: 1.2rem;
+        }
+
+        .phase-date {
+          font-size: 0.85rem;
+          padding: 0.2rem 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0 0.5rem;
+        }
+
+        section {
+          margin-bottom: 3rem;
+          padding-bottom: 2rem;
+        }
+
+        .contact-item {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          padding: 1.5rem 1rem;
+        }
+
+        .contact-icon {
+          margin-bottom: 0.5rem;
+        }
+
+        .contact-details h4 {
+          font-size: 1rem;
+        }
+
+        .contact-details p {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .contact-item {
+          padding: 1rem 0.8rem;
+        }
+
+        .contact-icon {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#" class="logo">
+        <div class="logo-circle">PK</div>
+        <span>Pyae Kyaw</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <button class="dark-toggle" id="darkToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="profile.png" alt="Pyae Kyaw" class="profile-photo" />
+      <h1>Pyae Kyaw</h1>
+      <h2 class="title">Ecommerce Supervisor & Digital Marketing Specialist</h2>
+      <p class="intro">
+        With 3 years of experience in ecommerce and digital marketing, I
+        specialize in driving revenue growth through integrated online-offline
+        strategies. Currently enhancing my expertise with applied economics to
+        make better data-driven business decisions.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-briefcase"></i> View My Work
+        </a>
+        <a href="cv.pdf" download class="btn btn-secondary">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Ecommerce & Marketing</h3>
+          <div class="skill-item">Ecommerce Platform Management</div>
+          <div class="skill-item">Campaign Strategy (Online/Offline)</div>
+          <div class="skill-item">Digital Marketing Analytics</div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Technical & Analytical</h3>
+          <div class="skill-item">Data Analysis & Reporting</div>
+          <div class="skill-item">Photoshop (Intermediate)</div>
+          <div class="skill-item">AI Tools & Prompt Engineering</div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Leadership & Development</h3>
+          <div class="skill-item">Team Leadership & Supervision</div>
+          <div class="skill-item">Problem Solving</div>
+          <div class="skill-item">Process Optimization</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education & Professional Development</h2>
+
+      <!-- BBA with Correct Timeline -->
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-title">
+            <span class="ongoing-badge">Currently Enrolled</span>
+            <h3>Bachelor of Business Administration (BBA)</h3>
+            <p>Meiktila University of Economics</p>
+          </div>
+          <div class="edu-date">2017 - Present</div>
+        </div>
+
+        <div class="edu-timeline">
+          <div class="timeline-phase">
+            <div class="phase-dot"></div>
+            <div class="phase-content">
+              <h4>On-Campus Studies (First & Second Year)</h4>
+              <p class="phase-date">2017 - 2019</p>
+              <p>
+                Successfully completed foundational business administration
+                courses through traditional on-campus education, building strong
+                academic foundations in business principles.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="phase-dot"></div>
+            <div class="phase-content">
+              <h4>Academic Pause Due to COVID-19</h4>
+              <p class="phase-date">2019 - 2024</p>
+              <p>
+                Temporarily paused studies during third year due to nationwide
+                university closures and educational disruptions caused by the
+                COVID-19 pandemic. Used this period to gain practical ecommerce
+                experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-phase current-phase">
+            <div class="phase-dot active-dot"></div>
+            <div class="phase-content">
+              <h4>Distance Learning Program (Third Year)</h4>
+              <p class="phase-date">2025 - Present</p>
+              <p>
+                Currently continuing third-year studies through the university's
+                distance learning program while maintaining professional work in
+                ecommerce. Successfully balancing academic pursuits with
+                practical industry experience.
+              </p>
+              <div class="current-status">
+                <i class="fas fa-sync-alt"></i>
+                <span>Expected Completion: 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-note">
+          <i class="fas fa-lightbulb"></i>
+          <p>
+            This educational journey demonstrates resilience, adaptability, and
+            the ability to balance academic pursuits with professional growth
+            during challenging circumstances.
+          </p>
+        </div>
+      </div>
+
+      <!-- CAEB Program -->
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-title">
+            <span class="ongoing-badge">Currently Attending</span>
+            <h3>Certificate in Applied Economics for Business (CAEB)</h3>
+            <p>Yangon University of Economics</p>
+          </div>
+          <div class="edu-date">January - March 2026</div>
+        </div>
+        <p>
+          Currently attending this intensive 3-month professional certificate
+          program that started on January 5, 2026. The program focuses on
+          applying economic principles to real-world business scenarios.
+        </p>
+
+        <div class="course-modules">
+          <h4>Course Modules:</h4>
+          <div class="module-item">
+            <strong>1. Understanding the Nature and Scope of Market</strong>
+            <p>
+              Market analysis, demand-supply dynamics, and competitive
+              environment assessment.
+            </p>
+          </div>
+          <div class="module-item">
+            <strong
+              >2. Fundamentals of Accounting & Business Organization</strong
+            >
+            <p>
+              Basic accounting principles, financial statements, and
+              organizational structures.
+            </p>
+          </div>
+          <div class="module-item">
+            <strong>3. English for Business Communication</strong>
+            <p>
+              Professional communication skills, report writing, and
+              presentation techniques.
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 1rem">
+          <strong>Professional Integration:</strong> Combining this economic
+          knowledge with my ecommerce experience enhances my ability to make
+          data-driven business decisions and develop effective market
+          strategies.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Key Projects & Achievements</h2>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Strategic Brand Revenue Growth</h3>
+          <div class="edu-date">2024-2025</div>
+        </div>
+        <p>
+          Led integrated retail expansion strategy that increased brand revenue
+          from $8,300 to $15,700 (89% growth) within 12 months through
+          multi-channel approach including retail consignment partnerships and
+          integrated campaigns.
+        </p>
+
+        <div class="project-metrics">
+          <div class="metric">
+            <h4>89%</h4>
+            <p>Revenue Growth</p>
+          </div>
+          <div class="metric">
+            <h4>8+</h4>
+            <p>Campaigns Executed</p>
+          </div>
+          <div class="metric">
+            <h4>5+</h4>
+            <p>Retail Partners</p>
+          </div>
+          <div class="metric">
+            <h4>$15.7K</h4>
+            <p>Annual Revenue</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Ecommerce Platform Optimization</h3>
+          <div class="edu-date">Ongoing</div>
+        </div>
+        <p>
+          Implemented systematic optimization strategies that improved
+          conversion rate from 75% to 87% through daily customer engagement,
+          visual merchandising enhancements, and data-driven campaign
+          adjustments.
+        </p>
+
+        <div class="project-metrics">
+          <div class="metric">
+            <h4>75% → 87%</h4>
+            <p>Conversion Rate</p>
+          </div>
+          <div class="metric">
+            <h4>&lt;24h</h4>
+            <p>Response Time</p>
+          </div>
+          <div class="metric">
+            <h4>Daily</h4>
+            <p>Monitoring System</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Team Development & Process Standardization</h3>
+          <div class="edu-date">2023-2024</div>
+        </div>
+        <p>
+          Built structured team development program with monthly performance
+          reviews, junior member mentoring, and SOP implementation. Optimized
+          delivery processes through third-party service integration.
+        </p>
+
+        <div class="project-metrics">
+          <div class="metric">
+            <h4>Monthly</h4>
+            <p>Team Meetings</p>
+          </div>
+          <div class="metric">
+            <h4>100%</h4>
+            <p>SOP Coverage</p>
+          </div>
+          <div class="metric">
+            <h4>3+</h4>
+            <p>Training Programs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <h2>Professional Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <h4>AI for Business Growth</h4>
+          <p class="cert-org">Myanmar Computer Industry Association (MCIA)</p>
+          <p class="cert-date">2025</p>
+        </div>
+
+        <div class="cert-card">
+          <h4>Applied Digital Marketing</h4>
+          <p class="cert-org">Myanmar Computer Industry Association (MCIA)</p>
+          <p class="cert-date">2023</p>
+        </div>
+
+        <div class="cert-card">
+          <h4>Transform Your Business: Marketing Management</h4>
+          <p class="cert-org">Myanmar-Japan Center (MJC)</p>
+          <p class="cert-date">2024</p>
+        </div>
+
+        <div class="cert-card">
+          <h4>Public & Motivation Speaker</h4>
+          <p class="cert-org">Global Development Institute</p>
+          <p class="cert-date">2021</p>
+        </div>
+
+        <div class="cert-card">
+          <h4>Workplace Ethics & Professional Responsibility</h4>
+          <p class="cert-org">Myanmar-Japan Center (MJC)</p>
+          <p class="cert-date">2025</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item email">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Email</h4>
+            <p>pyaekyaw19999@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item linkedin">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-details">
+            <h4>LinkedIn</h4>
+            <p>linkedin.com/in/pyae-kyaw-9bb67a2a7</p>
+          </div>
+        </div>
+
+        <div class="contact-item github">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-details">
+            <h4>GitHub</h4>
+            <p>github.com/pyaekyawpyaekyaw</p>
+          </div>
+        </div>
+
+        <div class="contact-item phone">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Phone</h4>
+            <p>+959 787 716 166</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Pyae Kyaw. All rights reserved.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem">
+        Portfolio updated: January 2026 | Minimalist Design | Fully Responsive
+      </p>
+    </footer>
+
+    <script>
+      // Dark Mode Toggle
+      const darkToggle = document.getElementById("darkToggle");
+      const body = document.body;
+
+      // Check saved theme
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "dark") {
+        enableDarkMode();
+      }
+
+      // Check system preference
+      if (
+        !savedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        enableDarkMode();
+      }
+
+      // Toggle dark mode
+      darkToggle.addEventListener("click", () => {
+        if (body.classList.contains("dark-mode")) {
+          disableDarkMode();
+        } else {
+          enableDarkMode();
+        }
+      });
+
+      function enableDarkMode() {
+        body.classList.add("dark-mode");
+        darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem("portfolio-theme", "dark");
+      }
+
+      function disableDarkMode() {
+        body.classList.remove("dark-mode");
+        darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem("portfolio-theme", "light");
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // CV Download Tracking
+      document
+        .querySelector('a[href="cv.pdf"]')
+        ?.addEventListener("click", function () {
+          console.log("CV downloaded - Track this in Google Analytics");
+        });
+    </script>
+  </body>
+</html>
